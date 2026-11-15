@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Godswill Azubike</title>
+  <meta name="description" content="Send Godswill Azubike a message.">
+ 
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Godswill Azubike">
+  <meta property="og:title" content="Contact | Godswill Azubike">
+  <meta property="og:description" content="Send Godswill Azubike a message.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The home page of Godswill Azubike's student portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact | Godswill Azubike">
+  <meta name="twitter:description" content="Send Godswill Azubike a message.">
+  <meta name="twitter:image" content="images/og-image.jpg">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js"></script>
+  <script src="js/contact.js" defer></script>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">GA<span class="logo__dot">.</span></span>
+        <span class="logo__name">Godswill Azubike</span>
+      </a>
+      <button class="nav-toggle" type="button">
+        <span class="nav-toggle__icon"><span></span><span></span><span></span></span>
+        <span class="nav-toggle__text">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <ul class="site-nav__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Planner</a></li>
+          <li><a href="contact.html" class="is-active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h1 id="page-title">Let's talk</h1>
+        <p class="lead">Have a question, a project idea or feedback? Fill in the form and I'll get back to you.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+
+        <!-- Contact form -->
+        <div class="window">
+          <div class="window__bar"><span class="window__title">send_message</span></div>
+          <div class="window__body">
+            <div class="alert alert--success" id="form-success" tabindex="-1" hidden></div>
+
+            <form class="form" id="contact-form" novalidate>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name">
+                <p class="error" id="name-error"></p>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="email">Email address</label>
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
+                  <p class="error" id="email-error"></p>
+                </div>
+                <div class="field">
+                  <label for="phone">Phone number</label>
+                  <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="08012345678">
+                  <p class="error" id="phone-error"></p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" maxlength="500"></textarea>
+                <div class="field__foot">
+                  <p class="error" id="message-error"></p>
+                  <p class="counter" id="message-count">0 / 500</p>
+                </div>
+              </div>
+
+              <div>
+                <button class="btn btn--primary" type="submit">Send message</button>
+              </div>
+              <p class="note">This form checks your details in the browser. It isn't connected to email yet.</p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Other contact details -->
+        <aside class="window">
+          <div class="window__bar"><span class="window__title">contact_info</span></div>
+          <div class="window__body">
+            <h2 class="h3" id="info-title">Other ways to reach me</h2>
+            <address>
+              <ul class="contact-list">
+                <li><span class="label">Email</span><a href="mailto:info.godswillazubike@gmail.com">info.godswillazubike@gmail.com</a></li>
+                <li><span class="label">Location</span>Asaba, Nigeria</li>
+                <li><span class="label">GitHub</span><a href="https://github.com/Godswill-Azubike" target="_blank" rel="noopener noreferrer">github.com/Godswill-Azubike</a></li>
+                <li><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/godswill-azubike" target="_blank" rel="noopener noreferrer">linkedin.com/in/godswill-azubike</a></li>
+              </ul>
+            </address>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>&copy; <span data-year>2026</span> Godswill Azubike.</p>
+      <ul class="site-footer__links">
+        <li><a href="https://github.com/Godswill-Azubike" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/godswill-azubike" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="#top">Back to top ↑</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

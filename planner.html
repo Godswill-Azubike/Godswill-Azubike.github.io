@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academic Planner | Godswill Azubike</title>
+  <meta name="description" content="A simple academic planner: add school tasks, mark them as done and delete them.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Godswill Azubike">
+  <meta property="og:title" content="Academic Planner | Godswill Azubike">
+  <meta property="og:description" content="A simple academic planner: add school tasks, mark them as done and delete them.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The home page of Godswill Azubike's student portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Academic Planner | Godswill Azubike">
+  <meta name="twitter:description" content="A simple academic planner: add school tasks, mark them as done and delete them.">
+  <meta name="twitter:image" content="images/og-image.jpg">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js"></script>
+  <script src="js/planner.js" defer></script>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__mark">GA<span class="logo__dot">.</span></span>
+        <span class="logo__name">Godswill Azubike</span>
+      </a>
+      <button class="nav-toggle" type="button">
+        <span class="nav-toggle__icon"><span></span><span></span><span></span></span>
+        <span class="nav-toggle__text">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <ul class="site-nav__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html" class="is-active">Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Academic planner</p>
+        <h1 id="page-title">Plan your week</h1>
+        <p class="lead">Keep track of assignments, tests and deadlines. Add a task, tick it off when it's done, and delete what you don't need. Your tasks are saved in this browser.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container planner">
+
+        <!-- Add a task -->
+        <div class="window planner__form">
+          <div class="window__bar"><span class="window__title">new_task</span></div>
+          <div class="window__body">
+            <h2 class="h3" id="form-title">Add a task</h2>
+            <form class="form" id="task-form" novalidate>
+              <div class="field">
+                <label for="task-title">Task</label>
+                <input id="task-title" name="title" type="text" maxlength="80" autocomplete="off" placeholder="e.g. Finish maths assignment">
+                <p class="error" id="task-title-error"></p>
+              </div>
+              <div class="field">
+                <label for="task-course">Course <span class="optional">(optional)</span></label>
+                <input id="task-course" name="course" type="text" maxlength="40" autocomplete="off" placeholder="e.g. Mathematics">
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="task-due">Due date <span class="optional">(optional)</span></label>
+                  <input id="task-due" name="due" type="date">
+                </div>
+                <div class="field">
+                  <label for="task-priority">Priority</label>
+                  <select id="task-priority" name="priority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn--primary" type="submit">Add task</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Task list -->
+        <div class="window planner__list">
+          <div class="window__bar"><span class="window__title">my_tasks</span></div>
+          <div class="window__body">
+            <h2 class="h3" id="tasks-title" tabindex="-1">My tasks</h2>
+
+            <div class="stats">
+              <p id="task-stats">No tasks yet</p>
+              <p id="task-percent">0% done</p>
+            </div>
+            <div class="progress" id="task-progress">
+              <div class="progress__fill" id="task-progress-fill"></div>
+            </div>
+
+            <div class="toolbar">
+              <div class="filters">
+                <button type="button" data-filter="all" class="is-active">All <span class="count" data-count="all">0</span></button>
+                <button type="button" data-filter="active">To do <span class="count" data-count="active">0</span></button>
+                <button type="button" data-filter="done">Done <span class="count" data-count="done">0</span></button>
+              </div>
+              <button class="btn btn--small" type="button" id="clear-done">Clear done</button>
+            </div>
+
+            <ul class="task-list" id="task-list"></ul>
+            <p class="empty" id="task-empty" hidden>Nothing here yet. Add your first task using the form.</p>
+            <noscript><p class="empty">The planner needs JavaScript turned on.</p></noscript>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>&copy; <span data-year>2026</span> Godswill Azubike.</p>
+      <ul class="site-footer__links">
+        <li><a href="https://github.com/Godswill-Azubike" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/godswill-azubike" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="#top">Back to top ↑</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
